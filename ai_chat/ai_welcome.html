@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Generator.ai</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px 20px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .glass-container h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .glass-container p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+        .glass-container .btn {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-container .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 126, 95, 0.5);
+        }
+
+        /* About Section */
+        .about-section {
+            margin: 50px auto;
+            padding: 40px 20px;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer Section */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 10px;
+            text-align: center;
+            color: white;
+        }
+        footer a {
+            color: #feb47b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="glass-container">
+            <h1>Welcome to Generator.ai</h1>
+            <p>Your ultimate platform for innovative and AI-powered solutions. Let’s create something amazing!</p>
+            <a href="generate_otp.html"><button class="btn">Get Started</button></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>About Us</h2>
+        <p>
+            Generator.ai is your creative assistant, built to simplify workflows and amplify your
+            potential. We provide AI-driven tools that adapt to your needs, delivering seamless
+            solutions for content creation, automation, and much more.
+        </p>
+        <p>
+            Join us to explore the possibilities and experience the future of innovation, today.
+        </p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Generator.ai. All rights reserved. | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

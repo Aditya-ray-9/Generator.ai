@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator AI</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generator AI</h1>
+        </header>
+        <div class="main">
+            <aside>
+                <h2>Recent Chats</h2>
+                <ul id="chatList" class="recent-chats">
+                    <li>Weather in New York</li>
+                    <li>Today's News</li>
+                </ul>
+            </aside>
+            <section class="chat-section">
+                <div class="chat-header">
+                    <h2>What can I help you with?</h2>
+                    <button id="shareBtn" class="btn">Share Chat</button>
+                </div>
+                <div id="chatBody" class="chat-body"></div>
+                <div class="chat-input">
+                    <input id="messageInput" type="text" placeholder="Type a message..." />
+                    <button id="sendBtn" class="btn">Send</button>
+                    <button id="sendFileBtn" class="btn">Send File</button>
+                    <button id="sendImageBtn" class="btn">Send Image</button>
+                </div>
+
+                <div class="bot-response-container">
+
+                    <div class="bot-response-container">
+                        <!-- Circle animation -->
+                        <div class="circle-animation"></div>
+                        <!-- Bot response -->
+                        <div class="bot-response">
+                            <p id="bot-output">This is the bot's reply text appearing behind the circle.</p>
+                            <!-- Copy button -->
+                            <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+                        </div>
+                    </div>
+                    
+                
+            </section>
+        </div>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>
