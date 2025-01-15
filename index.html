@@ -3,246 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Translator</title>
+    <title>Welcome to Generator.ai</title>
     <style>
-        /* Reset all default styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #f0f4f8;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            padding: 30px;
-            transition: background 0.3s ease, color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #1a1a2e, #16213e);
+            color: #eaeaea;
         }
 
-        .dark-mode {
-            background: #1e1e2f;
-            color: #f0f4f8;
-        }
-
-        /* Main container */
-        .container {
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 900px;
-            padding: 40px;
+        /* Header Section */
+        header {
             text-align: center;
-            transition: background 0.3s ease;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #0f3460, #16213e);
+            color: #eaeaea;
+            position: relative;
         }
-
-        .dark-mode .container {
-            background: #292942;
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
         }
-
-        /* Header styling */
-        h1 {
-            font-size: 2.5rem;
+        header p {
+            font-size: 1.5rem;
             margin-bottom: 30px;
-            text-transform: uppercase;
+            line-height: 1.6;
         }
-
-        /* Input Area Styling */
-        textarea {
-            width: 100%;
-            max-width: 800px;
-            height: 160px;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 18px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            color: #333;
-            resize: none;
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode textarea {
-            background-color: #3e3e50;
-            color: #f0f4f8;
-            border-color: #555;
-        }
-
-        textarea:focus {
-            border-color: #4A90E2;
-            outline: none;
-        }
-
-        /* Language Select Styling */
-        select {
-            width: 45%;
-            padding: 15px;
-            font-size: 18px;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-            background-color: #fff;
-            margin: 10px;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode select {
-            background-color: #3e3e50;
-            color: #f0f4f8;
-            border-color: #555;
-        }
-
-        select:focus {
-            border-color: #4A90E2;
-            outline: none;
-        }
-
-        /* Translate Button */
-        button {
-            background: #4A90E2;
-            color: #fff;
+        header .btn {
             padding: 15px 40px;
-            font-size: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #16213e;
+            background: #e94560;
             border: none;
-            border-radius: 8px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease;
-            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        header .btn:hover {
+            background: #0f3460;
+            color: #eaeaea;
+            transform: scale(1.1);
         }
 
-        button:hover {
-            transform: scale(1.05);
-            background: #357ABD;
+        /* About Section */
+        .about-section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 50px;
+            background: #16213e;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 20px;
         }
 
-        /* Output Container */
-        .output-container {
-            margin-top: 30px;
+        /* Features Section */
+        .features-section {
+            padding: 60px 20px;
+            background: #1a1a2e;
+            text-align: center;
+        }
+        .features-section h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #e94560;
+        }
+        .features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+        }
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        .feature-card p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
         }
 
-        .output-container textarea {
-            width: 100%;
-            max-width: 800px;
-            height: 160px;
-            padding: 20px;
-            font-size: 18px;
-            background-color: #f1f1f1;
-            color: #333;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-            resize: none;
+        /* Footer */
+        footer {
+            background: #0f3460;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 10px;
+            margin-top: 50px;
         }
-
-        .dark-mode .output-container textarea {
-            background-color: #3e3e50;
-            color: #f0f4f8;
-            border-color: #555;
+        footer p {
+            font-size: 1rem;
         }
-
-        /* iFrame Styling */
-        .corner-iframe {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 100px;
-            height: 50px;
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <!-- iFrame Button -->
-    <iframe src="temp.html" class="corner-iframe"></iframe>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Generator.ai</h1>
+        <p>
+            Redefine innovation and productivity with our AI-driven platform.
+        </p>
+        <a href="option.html"><button class="btn">Get Started</button></a>
+    </header>
 
-    <!-- Main Container -->
-    <div class="container">
-        <h1>Language Translator</h1>
-
-        <!-- Text Input Area -->
-        <textarea id="text-input" placeholder="Enter text to translate..."></textarea>
-
-        <!-- Language Selectors -->
-        <div>
-            <select id="from-lang">
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="it">Italian</option>
-                <option value="pt">Portuguese</option>
-                <option value="ru">Russian</option>
-                <option value="ar">Arabic</option>
-                <option value="ja">Japanese</option>
-                <option value="zh">Chinese</option>
-            </select>
-
-            <select id="to-lang">
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="it">Italian</option>
-                <option value="pt">Portuguese</option>
-                <option value="ru">Russian</option>
-                <option value="ar">Arabic</option>
-                <option value="ja">Japanese</option>
-                <option value="zh">Chinese</option>
-            </select>
-        </div>
-
-        <!-- Translate Button -->
-        <button id="translate-btn">Translate</button>
-
-        <!-- Output Container -->
-        <div class="output-container">
-            <h2>Translated Text</h2>
-            <textarea id="translated-text" readonly placeholder="Translated text will appear here..."></textarea>
-        </div>
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>About Us</h2>
+        <p>
+            At Generator.ai, we are committed to providing cutting-edge tools that inspire creativity and simplify complex tasks.
+        </p>
+        <p>
+            Join our community and experience the future of AI solutions.
+        </p>
     </div>
 
-    <script>
-        // Translation Logic
-        document.getElementById('translate-btn').addEventListener('click', async function () {
-            const text = document.getElementById('text-input').value;
-            const fromLang = document.getElementById('from-lang').value;
-            const toLang = document.getElementById('to-lang').value;
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2>Our Features</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <h3>AI Content Creation</h3>
+                <p>Generate high-quality content effortlessly with our state-of-the-art AI tools.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Workflow Automation</h3>
+                <p>Boost productivity by automating repetitive tasks seamlessly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Intuitive Design</h3>
+                <p>Explore a user-friendly interface designed for everyone.</p>
+            </div>
+        </div>
+    </section>
 
-            if (!text) {
-                alert('Please enter text to translate.');
-                return;
-            }
-
-            try {
-                const response = await fetch('https://libretranslate.de/translate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        q: text,
-                        source: fromLang,
-                        target: toLang,
-                        format: 'text'
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Translation failed');
-                }
-
-                const data = await response.json();
-                document.getElementById('translated-text').value = data.translatedText;
-
-            } catch (error) {
-                alert('An error occurred during translation. Please try again.');
-            }
-        });
-    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Generator.ai | <a href="#">Privacy Policy</a></p>
+    </footer>
 </body>
 </html>
