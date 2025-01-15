@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4d1b1; /* Skin color background */
+            background-color: #333; /* Default dark theme */
             overflow: hidden;
             transition: background-color 0.5s ease;
             flex-direction: column;
@@ -57,40 +57,6 @@
             z-index: 3;
         }
 
-
-        /* Stars for night theme */
-        .star {
-            width: 3px;
-            height: 3px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            animation: twinkle 2s infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        /* Shooting star animation */
-        .shooting-star {
-            width: 5px;
-            height: 5px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 50px;
-            animation: shoot 1s ease-out;
-        }
-
-        @keyframes shoot {
-            0% { opacity: 1; transform: translateY(0) translateX(0); }
-            100% { opacity: 0; transform: translateY(100px) translateX(50px); }
-        }
-
         /* Day theme */
         .toggle.day {
             background-color: #f5a466;
@@ -101,8 +67,8 @@
             background-color: #f58fb5;
         }
 
-        body.night {
-            background-color: #f58fb5;
+        body.light {
+            background-color: #f4d1b1; /* Light theme */
         }
 
         .toggle.night .ball {
@@ -112,15 +78,27 @@
         .translator {
             width: 100%;
             max-width: 800px;
-            background: white;
+            background: #444; /* Default dark theme */
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        body.light .translator {
+            background: white;
+            color: black;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         .translator h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #fff;
+        }
+
+        body.light .translator h1 {
+            color: black;
         }
 
         .translator textarea {
@@ -148,8 +126,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="toggle" class="toggle day">
-            <div id="sun" class="sun"></div>
+        <div id="toggle" class="toggle night">
             <div id="ball" class="ball"></div>
         </div>
         <div class="translator">
@@ -175,65 +152,31 @@
     <script>
         const toggle = document.getElementById('toggle');
         const ball = document.getElementById('ball');
-        const sun = document.getElementById('sun');
         const body = document.body;
+        const translator = document.querySelector('.translator');
         const translateButton = document.getElementById('translateButton');
         const inputText = document.getElementById('inputText');
         const outputText = document.getElementById('outputText');
         const languageFrom = document.getElementById('languageFrom');
         const languageTo = document.getElementById('languageTo');
 
-        let isNight = false;
+        let isNight = true; // Default to dark theme
 
         toggle.addEventListener('click', () => {
             if (isNight) {
-                // Change to day theme
-                body.classList.remove('night');
+                // Change to light theme
+                body.classList.add('light');
                 toggle.classList.remove('night');
                 toggle.classList.add('day');
-                sun.style.opacity = '1'; // Show the sun
-                addShootingStar();
-
-                // Remove existing stars
-                removeStars();
             } else {
-                // Change to night theme
-                body.classList.add('night');
-                toggle.classList.add('night');
+                // Change to dark theme
+                body.classList.remove('light');
                 toggle.classList.remove('day');
-                sun.style.opacity = '0'; // Hide the sun
-                addStars();
+                toggle.classList.add('night');
             }
 
             isNight = !isNight;
         });
-
-        function addStars() {
-            // Add random stars in the background
-            for (let i = 0; i < 20; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.style.top = `${Math.random() * 80}px`; // Stars only in the upper half
-                star.style.left = `${Math.random() * 300}px`;
-                toggle.appendChild(star);
-            }
-        }
-
-        function removeStars() {
-            document.querySelectorAll('.star').forEach(star => star.remove());
-        }
-
-        function addShootingStar() {
-            // Create and animate a shooting star
-            const shootingStar = document.createElement('div');
-            shootingStar.classList.add('shooting-star');
-            toggle.appendChild(shootingStar);
-
-            // Remove the shooting star after animation
-            setTimeout(() => {
-                toggle.removeChild(shootingStar);
-            }, 1000);
-        }
 
         translateButton.addEventListener('click', () => {
             const text = inputText.value;
